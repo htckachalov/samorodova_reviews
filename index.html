@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Витрина отзывов · Школа Александры Самородовой</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#fff;--red:#e12d39;--red-l:#ff4d5a;--cream:#f7f3ec;--g1:#f5f5f5;--g2:#e8e8e8;--g5:#8a8a8a;--g7:#4a4a4a}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Manrope,sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px;background:var(--black);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:-50%;background:radial-gradient(ellipse at 30% 50%,rgba(225,45,57,.10),transparent 55%),radial-gradient(ellipse at 70% 45%,rgba(225,45,57,.06),transparent 55%);animation:pulse 9s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.hero-in{position:relative;z-index:2;max-width:860px}
+.badge{display:inline-block;padding:7px 22px;border:1px solid rgba(225,45,57,.5);border-radius:99px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:34px}
+.hero h1{font-family:Unbounded,sans-serif;font-size:clamp(28px,5.2vw,54px);font-weight:800;line-height:1.15;margin-bottom:22px}
+.hero h1 span{color:var(--red)}
+.hero p{font-size:clamp(15px,2.2vw,19px);line-height:1.7;color:rgba(255,255,255,.72);max-width:620px;margin:0 auto}
+.counters{display:flex;gap:clamp(20px,5vw,64px);justify-content:center;margin:46px 0 10px;flex-wrap:wrap}
+.cnum{font-family:Unbounded,sans-serif;font-size:clamp(30px,6vw,58px);font-weight:800;color:var(--red);line-height:1}
+.clab{font-size:12px;color:rgba(255,255,255,.5);margin-top:9px;text-transform:uppercase;letter-spacing:1.4px}
+.arrow{margin-top:44px;cursor:pointer;animation:bnc 2.2s ease-in-out infinite}
+.arrow svg{width:34px;height:34px;stroke:var(--red);fill:none;stroke-width:2}
+@keyframes bnc{0%,100%{transform:translateY(0)}50%{transform:translateY(11px)}}
+/* SECTIONS */
+.sec{padding:clamp(56px,8vw,96px) 0}
+.sec-dark{background:var(--black);color:#fff}
+.eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:14px;text-align:center}
+.h2{font-family:Unbounded,sans-serif;font-size:clamp(22px,3.9vw,40px);font-weight:700;text-align:center;line-height:1.25;margin-bottom:14px}
+.sub{text-align:center;color:var(--g5);font-size:16px;max-width:640px;margin:0 auto 42px;line-height:1.6}
+.sec-dark .sub{color:rgba(255,255,255,.55)}
+/* RESULT TABS */
+.rtabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:38px}
+.rtab{padding:12px 24px;border-radius:99px;border:1.5px solid rgba(255,255,255,.18);background:transparent;color:rgba(255,255,255,.75);font-family:Manrope;font-size:14px;font-weight:700;cursor:pointer;transition:.25s}
+.rtab:hover{border-color:var(--red)}
+.rtab.on{background:var(--red);border-color:var(--red);color:#fff}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.rcard{background:#141414;border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.rcard:hover{border-color:rgba(225,45,57,.55);transform:translateY(-4px)}
+.rwhen{display:inline-block;margin:20px 22px 0;padding:6px 13px;background:rgba(225,45,57,.15);border:1px solid rgba(225,45,57,.4);border-radius:99px;font-size:11px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--red-l)}
+.rmetric{font-family:Unbounded,sans-serif;font-size:19px;font-weight:700;color:var(--red);padding:14px 22px 8px;line-height:1.3}
+.rauthor{font-size:12px;color:rgba(255,255,255,.45);padding:0 22px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.rtext{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.78);padding:12px 22px 18px}
+.rimg{width:100%;display:block;cursor:zoom-in;border-top:1px solid rgba(255,255,255,.08)}
+/* SEARCH */
+.search-box{max-width:680px;margin:0 auto 12px;position:relative}
+.search-box input{width:100%;padding:20px 24px;font-family:Manrope;font-size:16px;border:2px solid var(--g2);border-radius:99px;outline:none;transition:.25s}
+.search-box input:focus{border-color:var(--red)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.chip{padding:8px 16px;background:var(--g1);border:none;border-radius:99px;font-family:Manrope;font-size:13px;color:var(--g7);cursor:pointer;transition:.2s}
+.chip:hover{background:var(--red);color:#fff}
+.sres{margin-top:34px}
+.scount{text-align:center;color:var(--g5);font-size:14px;margin-bottom:22px}
+/* TABS */
+.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px}
+.tab{background:var(--g1);border:2px solid transparent;border-radius:18px;padding:26px 24px;cursor:pointer;transition:.28s;text-align:left}
+.tab:hover{border-color:var(--red);background:#fff;transform:translateY(-4px);box-shadow:0 14px 44px rgba(225,45,57,.13)}
+.tab.on{border-color:var(--red);background:#fff;box-shadow:0 10px 34px rgba(225,45,57,.16)}
+.tab-kicker{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);font-weight:800;margin-bottom:10px}
+.tab-q{font-family:Unbounded,sans-serif;font-size:15.5px;font-weight:600;line-height:1.45}
+/* MASONRY */
+.masonry{columns:4;column-gap:14px;margin-top:34px}
+@media(max-width:1100px){.masonry{columns:3}}
+@media(max-width:760px){.masonry{columns:2}}
+@media(max-width:480px){.masonry{columns:1}}
+.mcard{break-inside:avoid;margin-bottom:14px;border-radius:12px;overflow:hidden;background:var(--g1);cursor:zoom-in;transition:.25s;position:relative}
+.mcard:hover{transform:scale(1.025);box-shadow:0 10px 30px rgba(0,0,0,.14)}
+.mcard img{width:100%;display:block}
+.mdate{position:absolute;left:8px;bottom:8px;background:rgba(10,10,10,.78);color:#fff;font-size:11px;padding:4px 9px;border-radius:6px;letter-spacing:.4px}
+.more{display:block;margin:34px auto 0;padding:16px 44px;background:var(--black);color:#fff;border:none;border-radius:99px;font-family:Unbounded,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:.25s}
+.more:hover{background:var(--red)}
+/* WALL */
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:5px;max-height:520px;overflow:hidden;position:relative;border-radius:16px}
+.wall img{width:100%;height:118px;object-fit:cover;object-position:top;border-radius:5px;opacity:.82;cursor:zoom-in;transition:.2s}
+.wall img:hover{opacity:1;transform:scale(1.09);position:relative;z-index:3}
+.wall-fade{position:absolute;left:0;right:0;bottom:0;height:190px;background:linear-gradient(transparent,var(--white));pointer-events:none}
+.wall-wrap{position:relative}
+.wall-wrap.open .wall{max-height:none}
+.wall-wrap.open .wall-fade{display:none}
+/* CTA */
+.cta{background:var(--black);color:#fff;text-align:center;padding:clamp(64px,9vw,110px) 20px}
+.cta h2{font-family:Unbounded,sans-serif;font-size:clamp(24px,4.4vw,44px);font-weight:800;margin-bottom:18px}
+.cta h2 span{color:var(--red)}
+.cta p{font-size:17px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto 36px;line-height:1.65}
+
+.hq{font-family:Unbounded,sans-serif;font-size:clamp(17px,2.9vw,25px);font-weight:500;margin-top:46px;margin-bottom:10px}
+.hh{font-size:14px;color:rgba(255,255,255,.42)}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:16px;max-width:1000px;margin:0 auto 44px;text-align:left}
+.perk{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px 22px}
+.pn{font-family:Unbounded,sans-serif;font-size:12px;color:var(--red);font-weight:800;margin-bottom:12px;letter-spacing:1px}
+.pt{font-family:Unbounded,sans-serif;font-size:15px;font-weight:600;line-height:1.4;margin-bottom:10px}
+.pd{font-size:14px;line-height:1.6;color:rgba(255,255,255,.6)}
+.cta .wrap{max-width:1100px}
+.cbtn{display:inline-block;padding:19px 52px;background:var(--red);color:#fff;text-decoration:none;font-family:Unbounded,sans-serif;font-size:16px;font-weight:600;border-radius:99px;transition:.3s}
+.cbtn:hover{background:var(--red-l);transform:translateY(-2px);box-shadow:0 10px 34px rgba(225,45,57,.42)}
+/* MODAL */
+.mod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.mod.on{display:flex}
+.mod img{max-width:94vw;max-height:92vh;border-radius:10px;object-fit:contain}
+.empty{text-align:center;color:var(--g5);padding:40px 0;font-size:15px}
+</style></head><body>
+<section class="hero">
+ <div class="hero-in">
+  <div class="badge">Школа Александры Самородовой · 6 лет</div>
+  <h1>Привет! Я <span>витрина отзывов</span></h1>
+  <p>Во мне - слова учеников восемнадцати потоков.<br>И я буду говорить с тобой их словами.</p>
+  <div class="counters">
+   <div><div class="cnum" id="c1">0</div><div class="clab">отзывов за 6 лет</div></div>
+   <div><div class="cnum" id="c2">0</div><div class="clab">самых показательных</div></div>
+   <div><div class="cnum" id="c3">0</div><div class="clab">потоков</div></div>
+  </div>
+  <div class="hq">Что ты хочешь узнать устами учеников?</div>
+  <div class="hh">Спроси своими словами - или выбери вопрос ниже</div>
+  <div class="arrow" onclick="document.getElementById('ask').scrollIntoView()"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+ </div>
+</section>
+
+<section class="sec" id="ask">
+ <div class="wrap">
+  <div class="eyebrow">Спроси о чём угодно</div>
+  <h2 class="h2">Задай свой вопрос -<br>ученики уже на него ответили</h2>
+  <p class="sub">Напиши то, что тебя беспокоит, своими словами. Я поищу по всем переписками и покажу, кто говорил ровно об этом.</p>
+  <div class="search-box"><input id="q" placeholder="боюсь, что не потяну…" autocomplete="off"></div>
+  <div class="chips" id="chips"></div>
+  <div class="sres" id="sres"></div>
+ </div>
+</section>
+
+<section class="sec" style="background:var(--cream)">
+ <div class="wrap">
+  <div class="eyebrow">О чём ты думаешь прямо сейчас</div>
+  <h2 class="h2">Выбери свою мысль</h2>
+  <p class="sub">Отвечать будем не мы. Нажми - и увидишь, что говорили люди, которые думали так же.</p>
+  <div class="tabs" id="tabs"></div>
+  <div id="tabout"></div>
+ </div>
+</section>
+
+<section class="sec">
+ <div class="wrap">
+  <div class="eyebrow">Весь архив</div>
+  <h2 class="h2">Восемьсот переписок целиком</h2>
+  <p class="sub">Отобраны вручную из более чем трёх тысяч. Нажми на любую, чтобы прочитать.</p>
+  <div class="wall-wrap" id="ww"><div class="wall" id="wall"></div><div class="wall-fade"></div></div>
+  <button class="more" onclick="document.getElementById('ww').classList.add('open');this.style.display='none'">Показать все →</button>
+ </div>
+</section>
+
+<section class="sec sec-dark" id="res">
+ <div class="wrap">
+  <div class="eyebrow">А теперь - про результат</div>
+  <h2 class="h2">Кто-то дошёл до этого<br>ещё во время обучения</h2>
+  <p class="sub">Мы не собираем кейсы. Не просим записать отзыв, не даём бонус за скрин, не пишем «пришлите результат». Всё, что ниже, ученики написали Саше сами - потому что захотелось поделиться.</p>
+  <div class="rtabs" id="rtabs"></div>
+  <div class="rgrid" id="rgrid"></div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="wrap">
+  <h2>Хочешь оказаться <span>в этой витрине</span>?</h2>
+  <p>18 поток стартует 5 октября. И это самый выгодный вход в профессию из всех, что были.</p>
+  <div class="perks">
+   <div class="perk"><div class="pn">01</div><div class="pt">Диплом о переподготовке - в стоимости</div><div class="pd">Полноценный документ о профессиональной переподготовке, который отображается на Госуслугах. В 18 потоке он входит в стоимость обучения. В 19-м так уже не будет.</div></div>
+   <div class="perk"><div class="pn">02</div><div class="pt">Два обучения по цене одного</div><div class="pd">Ученики 18 потока получают доступ к 19-му. То есть ты проходишь программу дважды: сначала учишься, потом закрепляешь уже с опытом и своими вопросами.</div></div>
+   <div class="perk"><div class="pn">03</div><div class="pt">Не надо ждать</div><div class="pd">Старт 5 октября - отучилась и сразу в работу, а не через полгода ожидания следующего набора.</div></div>
+   <div class="perk"><div class="pn">04</div><div class="pt">Цена ниже, чем будет</div><div class="pd">19 поток - последний, и он будет заметно дороже. 18-й - последняя возможность войти по этой стоимости.</div></div>
+  </div>
+  <a class="cbtn" href="https://t.me/alina_sevalkina" target="_blank">Узнать про обучение →</a>
+ </div>
+</section>
+
+<div class="mod" id="mod" onclick="this.classList.remove('on')"><img id="modi" src="" alt=""></div>
+<script src="data.js"></script><script src="app.js"></script></body></html>
